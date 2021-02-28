@@ -49,6 +49,10 @@ public class TestBase {
     options.setExperimentalOption("prefs",prefs);
   }
 
+  /**
+   * Заполнение формы с оформлением кредитной карты
+   * 
+   */
   protected void fillFromCards(FormCards formCards) {
     driver.findElement(By.xpath("//input[@data-message-title='Фамилия']")).sendKeys(formCards.getSurname());
     driver.findElement(By.xpath("//input[@data-message-title='Имя']")).sendKeys(formCards.getName());
@@ -60,33 +64,54 @@ public class TestBase {
     driver.findElement(By.xpath("//div[@class='jq-selectbox__dropdown']//li[text()='Пензенская область']")).click();
   }
 
+  /**
+   * Выбор кредитной карты
+   */
   protected void selectCreditCard() {
     driver.findElement(By.xpath("//a[@href='https://rencredit.ru/app/card/365']")).click();
   }
 
+  /**
+   * Переход на вкладку с кредитными картами
+   */
   protected void gotoCreditCard() {
     driver.findElement(By.xpath("//div[@class='service__title']/a")).click();
   }
 
+  /**
+   * Перехо на сайт Ренесанс
+   */
   protected void gotoWebsiteRenisans() {
     driver.get("https://rencredit.ru/");
   }
 
+  /**
+   * Закрытие окна браузера, после окончания теста
+   */
   @AfterMethod
   public void closePage(){
     driver.quit();
   }
 
+  /**
+   * Скачивание выбранного документа с условиями и тарифами по кредитным картам
+   */
   protected void downloadConditions() {
     driver.findElement(By.xpath(
                     "//a[text()='Общие условия предоставления кредитов и выпуска банковских карт от 05.10.2020']"))
             .click();
   }
 
+  /**
+   * Поиск ссылки на тарифы и условия по кредитным картам
+   */
   protected void searchConditions() {
     driver.findElement(By.xpath("//div[@class='footer__nav-list']//a[text()='Тарифы и условия']")).click();
   }
 
+  /**
+   * Заполнение формы доходности по вкладам
+   */
   protected void calculateByDeposit() {
     driver.findElement(By.xpath("//div[@class='calculator__check-row-field check-deposit']")).click();
     driver.findElement(By.xpath("//input[@type='text' and @name='amount']")).click();
@@ -99,6 +124,9 @@ public class TestBase {
     actions.clickAndHold(startPeriod).moveToElement(endPeriod).release().build().perform();
   }
 
+  /**
+   * Выбор вклада
+   */
   protected void selectDeposit() {
     driver.findElement(By.xpath("//div[@class='service__title']/a[@href='/contributions/']")).click();
   }
