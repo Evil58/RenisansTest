@@ -26,6 +26,9 @@ public class TestBase {
     settingsChrome();
   }
 
+  /**
+   * Настройки драйвера
+   */
   private void settingsDriver() {
     WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
     driver = new ChromeDriver();
@@ -33,6 +36,9 @@ public class TestBase {
     driver.manage().window().maximize();
   }
 
+  /**
+   * Настройки браузера
+   */
   private void settingsChrome() {
     ChromeOptions options = new ChromeOptions();
     Map<String, Object> prefs = new HashMap<>();
