@@ -15,7 +15,7 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 
+ * Базовый клас с методами
  */
 public class TestBase {
   ChromeDriver driver;
